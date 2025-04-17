@@ -11,7 +11,10 @@ int main (int ac, char *av[])
 			int j = 0;
 			while (av[i][j])
 			{
-				std::cout <<  static_cast<char>(std::toupper(av[i][j]));
+				if (std::isalpha(av[i][j]))
+					std::cout << static_cast<char>(std::toupper(av[i][j]));
+				else
+					std::cout << av[i][j];
 				j++;
 			}
 			i++;
