@@ -1,0 +1,9 @@
+Difference between C and C++?
+The main difference between C and C++ is that C++ supports classes and objects, while C does not.
+
+Note: C++ is case-sensitive: "cout" and "Cout" has different meaning.
+
+
+count == object (prptotype)
+<< == operator (to output the text)
+
