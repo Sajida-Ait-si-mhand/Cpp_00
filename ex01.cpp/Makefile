@@ -9,7 +9,7 @@ GREEN1 = \033[38;5;121m
 HIGHLIGHTER = \033[0;43m
 # Files:
 
-SRC =	phonebook.cpp
+SRC =	phonebook.cpp type_infos.cpp
 OBJ = $(SRC:.cpp=.o)
 
 # Flags:
