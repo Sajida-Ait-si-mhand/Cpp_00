@@ -61,18 +61,20 @@ int main ()
 	std::getline(std::cin, command) ;
 	std::cout << "This is the command " << command << std::endl;
 
-	if (std::strcmp(command, "ADD"))
+	if (std::strcmp(command.c_str(), "ADD") == 0)
 	{
 		add();
 	}
-	if (std::strcmp(command, "EXIT"))
+	else if (std::strcmp(command.c_str(), "EXIT") == 0)
 	{
 		exit();
 	}
-	if (std::strcmp(command, "SEARCH"))
+	else if (std::strcmp(command.c_str(), "SEARCH") == 0)
 	{
 		search();
 	}
+	else 
+		std::cout << "NADA";
 	// Contact contact[8];
 	// int i = 0;
 	// contact[i].index = (i + 1); 
