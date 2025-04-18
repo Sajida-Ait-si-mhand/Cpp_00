@@ -10,6 +10,13 @@ void add()
 	contact[i].index = (i + 1); 
 
 	type_your_infos(contact[i]);
+}
+void search()
+{
+	std::cout << "\033[0;32mTHIS IS A ADD search \033[0m \n";
+	Contact contact[8];
+	int i = 0;
+	contact[i].index = (i + 1);
 
 	std::cout << "|";
 	check_10("Index");
@@ -29,37 +36,23 @@ void add()
 	check_10(contact[i].darkestSecret);
 	std::cout << std::endl;
 }
-void search()
-{
-	std::cout << "\033[0;32mTHIS IS A ADD search \033[0m";
-}
-void exit()
-{
-	std::cout << "\033[0;37mTHIS IS A ADD exit \033[0m";
-}
+
 int main ()
 {
-	
-
-	for (int x = 0; x < 7; x++)
+	std::string command;
+	while (true)
 	{
-		std::string command;
 		std::cout << "Enter your command [ADD, SEARCH, EXIT]:" <<std::endl;
 		std::cout  <<  "\033[36m@>\033[0m";
 		std::getline(std::cin, command);
 
 		if (std::strcmp(command.c_str(), "ADD") == 0)
-		{
-			add();
-		}
-		else if (std::strcmp(command.c_str(), "EXIT") == 0)
-			exit();
+				add();
 		else if (std::strcmp(command.c_str(), "SEARCH") == 0)
 			search();
+		else if (std::strcmp(command.c_str(), "EXIT") == 0)
+			exit(0);
 		else 
-		std::cout << " 😒 :Enter your command [ADD, SEARCH, EXIT]";
+			std::cout << " 😒 :Enter your command [ADD, SEARCH, EXIT]";
 	}
-	
-	
-	
 }
