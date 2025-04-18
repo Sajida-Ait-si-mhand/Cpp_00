@@ -39,19 +39,27 @@ void exit()
 }
 int main ()
 {
-	std::string command;
-	std::cout << "Enter your command [ADD, SEARCH, EXIT]:" <<std::endl;
-	std::cout  <<  "\033[36m@>\033[0m";
-	std::getline(std::cin, command);
+	
 
-	if (std::strcmp(command.c_str(), "ADD") == 0)
-		add();
-	else if (std::strcmp(command.c_str(), "EXIT") == 0)
-		exit();
-	else if (std::strcmp(command.c_str(), "SEARCH") == 0)
-		search();
-	else 
+	for (int x = 0; x < 7; x++)
+	{
+		std::string command;
+		std::cout << "Enter your command [ADD, SEARCH, EXIT]:" <<std::endl;
+		std::cout  <<  "\033[36m@>\033[0m";
+		std::getline(std::cin, command);
+
+		if (std::strcmp(command.c_str(), "ADD") == 0)
+		{
+			add();
+		}
+		else if (std::strcmp(command.c_str(), "EXIT") == 0)
+			exit();
+		else if (std::strcmp(command.c_str(), "SEARCH") == 0)
+			search();
+		else 
 		std::cout << " 😒 :Enter your command [ADD, SEARCH, EXIT]";
+	}
+	
 	
 	
 }
