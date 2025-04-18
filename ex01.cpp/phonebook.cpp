@@ -1,22 +1,27 @@
+
 #include "phonebook.hpp"
 
-
-
-void add()
+void add(Contact contact[], int &count)
 {
 	std::cout << "\033[0;33mTHIS IS A ADD COMMAND \033[0m " << std::endl;
-	Contact contact[8];
-	int i = 0;
-	contact[i].index = (i + 1); 
-
-	type_your_infos(contact[i]);
+	if (count >= 8)
+	{
+		std::cout << "PhoneBook is full!" << std::endl;
+		return;
+	}
+	contact[count].index = (count + 1); 
+	type_your_infos(contact[count]);
+	count++;
 }
-void search()
+void search(Contact contact[], int count)
 {
-	std::cout << "\033[0;32mTHIS IS A ADD search \033[0m \n";
-	Contact contact[8];
-	int i = 0;
-	contact[i].index = (i + 1);
+	std::cout << "\033[0;32mTHIS IS A  SEARCH \033[0m \n";
+	// if (count == 0)
+	// {
+	// 	std::cout << "No contacts yet." << std::endl;
+	// 	return;
+	// }
+	contact[count].index = (count + 1);
 
 	std::cout << "|";
 	check_10("Index");
@@ -27,18 +32,24 @@ void search()
 	check_10("Darkest Secret");
 	std::cout << std::endl;
 
-	std::cout << "|";
-	check_10(std::to_string(contact[i].index));
-	check_10(contact[i].first_name);
-	check_10(contact[i].last_name);
-	check_10(contact[i].nickname);
-	check_10(contact[i].number);
-	check_10(contact[i].darkestSecret);
-	std::cout << std::endl;
+	for (int i = 0; i < count ; i++)
+	{
+		std::cout << "|";
+		check_10(std::to_string(contact[i].index));
+		check_10(contact[i].first_name);
+		check_10(contact[i].last_name);
+		check_10(contact[i].nickname);
+		check_10(contact[i].number);
+		check_10(contact[i].darkestSecret);
+		std::cout << std::endl;
+	}
 }
 
 int main ()
 {
+	Contact contact[8];
+	int count = 0;
+
 	std::string command;
 	while (true)
 	{
@@ -47,9 +58,9 @@ int main ()
 		std::getline(std::cin, command);
 
 		if (std::strcmp(command.c_str(), "ADD") == 0)
-				add();
+			add(contact, count);
 		else if (std::strcmp(command.c_str(), "SEARCH") == 0)
-			search();
+			search(contact, count);
 		else if (std::strcmp(command.c_str(), "EXIT") == 0)
 			exit(0);
 		else 

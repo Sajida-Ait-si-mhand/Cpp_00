@@ -25,3 +25,5 @@ void type_your_infos(Contact &contact)
 	std::cin >> contact.darkestSecret;
 	
 }
+
+
