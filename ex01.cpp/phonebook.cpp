@@ -30,9 +30,8 @@ void check_10(std::string value)
 	std::cout << std::setw(10) <<  value  << "|";
 	
 }
-void type_your_infos(Contact &contact, int i)
+void type_your_infos(Contact &contact)
 {
-	contact.index = i;
 	std::cout  << "Please enter the first name:";
 	std::cin >> contact.first_name ;
 
@@ -42,57 +41,60 @@ void type_your_infos(Contact &contact, int i)
 	std::cout  << "Please enter phone number:";
 	std::cin >> contact.number ;
 }
-
-
-int main (int ac, char *av[])
+void add()
 {
-	if (ac == 1)
+	std::cout << "\033[0;33mTHIS IS A ADD COMMAND \033[0m";
+}
+void search()
+{
+	std::cout << "\033[0;32mTHIS IS A ADD search \033[0m";
+}
+void exit()
+{
+	std::cout << "\033[0;37mTHIS IS A ADD exit \033[0m";
+}
+int main ()
+{
+	std::string command;
+	std::cout << "Enter your command [ADD, SEARCH, EXIT]:" <<std::endl;
+	std::cout  <<  "\033[36m@>\033[0m";
+	std::getline(std::cin, command) ;
+	std::cout << "This is the command " << command << std::endl;
+
+	if (std::strcmp(command, "ADD"))
 	{
-		std::cout << "ENTER YOUR DS";
-		exit (1);
+		add();
 	}
-	Contact contact[8];
-	int i = 0;
-	// // if ADD => use the cin to output the user_name
-	// // SEARCH Implimentation
-	std::cout << "-----------------------------------------------" << std::endl;
-	std::cout << "|";
-	check_10("Index");
-	check_10("Last name");
-	check_10("First name");
-	check_10("Nickname");
-	std::cout << std::endl;
+	if (std::strcmp(command, "EXIT"))
+	{
+		exit();
+	}
+	if (std::strcmp(command, "SEARCH"))
+	{
+		search();
+	}
+	// Contact contact[8];
+	// int i = 0;
+	// contact[i].index = (i + 1); 
+
+	// type_your_infos(contact[i]);
+
+	// std::cout << "|";
+	// check_10("Index");
+	// check_10("First name");
+	// check_10("Last name");
+	// check_10("Number");
+	// std::cout << std::endl;
+
+	// // while (i < 3)
+	// // {
+	// 	std::cout << "|";
+	// 	check_10(std::to_string(contact[i].index));
+	// 	check_10(contact[i].first_name);
+	// 	check_10(contact[i].last_name);
+	// 	check_10(contact[i].number);
+	// 	std::cout << std::endl;
+	// 	// i++;
+	// // }
 	
-	std::cout << "|";
-	std::cout << "\033[1;35m \n-- Contact " << (i + 1) << " -- \033[0m\n";
-	type_your_infos(contact[i], i);
-	check_10(std::to_string(contact[i].index));
-	check_10(contact[i].first_name);
-	check_10(contact[i].last_name);
-	check_10(contact[i].number);
-
-	 
-	
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	std::cout << std::endl << "-----------------------------------------------" << std::endl;
-
 }
